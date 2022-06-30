@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.weatherService.weatherService.config.Config;
+
 @RestController
 public class WeatherController {
 
@@ -18,7 +20,7 @@ public class WeatherController {
 
         ResponseEntity<Object> response = restTemplate.getForEntity(
                 "https://api.openweathermap.org/data/2.5/weather?q=" + city +
-                        "&APPID=API_HERE",
+                        "&APPID="+ Config.API_KEY,
                 Object.class);
 
         return response;
