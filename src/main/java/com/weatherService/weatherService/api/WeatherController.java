@@ -26,4 +26,17 @@ public class WeatherController {
         return response;
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/forecastByCity/{city}")
+    public @ResponseBody Object getForecastByCity(@PathVariable String city) {
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        ResponseEntity<Object> response = restTemplate.
+                getForEntity("https://api.openweathermap.org/data/2.5/forecast?q=" + city +
+                                "&APPID=" + Config.API_KEY,
+                        Object.class);
+
+        return response;
+    }
+
 }
