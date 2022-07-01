@@ -26,7 +26,7 @@ public class WeatherController {
         return response;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/locationData/{latitude},{longitude}")
+    @RequestMapping(method = RequestMethod.GET, value = "/locationData/{latitude}/{longitude}")
     public @ResponseBody Object weatherByLocation(@PathVariable String latitude,@PathVariable String longitude) {
 
         RestTemplate restTemplate = new RestTemplate();
